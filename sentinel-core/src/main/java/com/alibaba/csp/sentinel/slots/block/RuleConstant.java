@@ -23,8 +23,8 @@ import com.alibaba.csp.sentinel.node.IntervalProperty;
  */
 public final class RuleConstant {
 
-    public static final int FLOW_GRADE_THREAD = 0;
-    public static final int FLOW_GRADE_QPS = 1;
+    public static final int FLOW_GRADE_THREAD = 0;  // 基于并发数
+    public static final int FLOW_GRADE_QPS = 1;     // 基于QPS
 
     public static final int DEGRADE_GRADE_RT = 0;
     /**
@@ -46,9 +46,9 @@ public final class RuleConstant {
     public static final int STRATEGY_RELATE = 1;
     public static final int STRATEGY_CHAIN = 2;
 
-    public static final int CONTROL_BEHAVIOR_DEFAULT = 0;
-    public static final int CONTROL_BEHAVIOR_WARM_UP = 1;
-    public static final int CONTROL_BEHAVIOR_RATE_LIMITER = 2;
+    public static final int CONTROL_BEHAVIOR_DEFAULT = 0;       // 直接拒绝，会跑出异常
+    public static final int CONTROL_BEHAVIOR_WARM_UP = 1;       // 预热，会跑出异常
+    public static final int CONTROL_BEHAVIOR_RATE_LIMITER = 2;  // 这种方式严格控制了请求通过的间隔时间，也即是让请求以均匀的速度通过，对应的是漏桶算法。
     public static final int CONTROL_BEHAVIOR_WARM_UP_RATE_LIMITER = 3;
 
     public static final int DEFAULT_BLOCK_STRATEGY = 0;

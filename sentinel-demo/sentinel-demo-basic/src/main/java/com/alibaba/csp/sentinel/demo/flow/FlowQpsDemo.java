@@ -47,11 +47,11 @@ public class FlowQpsDemo {
     private static int seconds = 60 + 40;
 
     public static void main(String[] args) throws Exception {
-        initFlowQpsRule();
+        initFlowQpsRule();      // 初始化规则
 
         tick();
-        // first make the system run on a very low condition
-        simulateTraffic();
+        // 首先使系统在一个非常低的条件下运行
+        simulateTraffic();  // 创建
 
         System.out.println("===== begin to do flow control");
         System.out.println("only 20 requests per second can pass");

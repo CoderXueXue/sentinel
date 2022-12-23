@@ -39,6 +39,7 @@ public class DemoApplication {
         try {
             System.out.println(testService.helloAnother("foo"));
         } catch (IllegalStateException e) {
+            System.out.println("Throwing exception");
             System.err.println(e.getMessage());
         }
 

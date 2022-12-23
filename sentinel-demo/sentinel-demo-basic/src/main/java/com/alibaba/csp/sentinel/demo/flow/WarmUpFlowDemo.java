@@ -72,7 +72,7 @@ public class WarmUpFlowDemo {
     private static int seconds = 60 + 40;
 
     public static void main(String[] args) throws Exception {
-        initFlowRule();
+        initFlowRule();     // 初始化规则
         // trigger Sentinel internal init
         Entry entry = null;
         try {
@@ -88,9 +88,11 @@ public class WarmUpFlowDemo {
         timer.setName("sentinel-timer-task");
         timer.start();
 
-        //first make the system run on a very low condition
+        //首先使系统在一个非常低的条件下运行
         for (int i = 0; i < 3; i++) {
             Thread t = new Thread(new WarmUpTask());
+//            Thread t = new Thread(new RunTask());
+
             t.setName("sentinel-warmup-task");
             t.start();
         }
@@ -116,7 +118,7 @@ public class WarmUpFlowDemo {
         rule1.setGrade(RuleConstant.FLOW_GRADE_QPS);
         rule1.setLimitApp("default");
         rule1.setControlBehavior(RuleConstant.CONTROL_BEHAVIOR_WARM_UP);
-        rule1.setWarmUpPeriodSec(10);
+        rule1.setWarmUpPeriodSec(10);   // 十秒钟的预热时间
 
         rules.add(rule1);
         FlowRuleManager.loadRules(rules);

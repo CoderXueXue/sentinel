@@ -15,6 +15,7 @@
  */
 package com.alibaba.csp.sentinel.demo.spring.webmvc;
 
+import com.alibaba.csp.sentinel.demo.spring.webmvc.controller.SimpleDemo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -29,5 +30,12 @@ public class WebMvcDemoApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(WebMvcDemoApplication.class);
+
+        SimpleDemo simpleDemo = new SimpleDemo();
+        try {
+            simpleDemo.main(null);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

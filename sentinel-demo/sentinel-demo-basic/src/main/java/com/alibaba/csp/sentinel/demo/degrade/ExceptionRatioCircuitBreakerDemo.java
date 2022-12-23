@@ -49,7 +49,7 @@ public class ExceptionRatioCircuitBreakerDemo {
     private static int seconds = 120;
 
     public static void main(String[] args) throws Exception {
-        initDegradeRule();
+        initDegradeRule();  // 初始化降级规则
         registerStateChangeObserver();
         startTick();
 
